@@ -4,6 +4,6 @@
 
 # Replace the following placeholders with your information.
 
-# NAME
-# EMAIL
-# STUDENT ID
+# Edward Lee
+# edwarhl4@uci.edu
+# 61666868

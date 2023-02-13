@@ -11,16 +11,23 @@
 import pathlib
 import shlex
 
+def inputSplitter(myInput):
+    firstLetter = myInput[0]
+    if firstLetter =
+
+
+    return inputInList
 def run():
     userInput = input()
-    regexInput = shlex.split(userInput)
+    regexInput = shlex.split(userInput, posix=False)
     try:
         firstCommand = regexInput[0]
+        print(regexInput[1])
         filePath = pathlib.Path(regexInput[1])
-    except IndexError:
-        print("Error")
+    except IndexError as error:
+        print(f"error: {error}")
 
-    if firstCommand =="L":
+    if firstCommand == "L":
         for element in filePath.iterdir():
             print(element)
         print("L")
@@ -54,14 +61,14 @@ def run():
                     with open(filePath) as tempPath:
                         print(tempPath.read())
             else:
-                print("ERROR")
+                print("ERROR, file does not end in .dsu")
         else:
-            print("ERROR")
+            print("ERROR, selected path is not a file.")
     elif firstCommand == "Q":
         # quit
         return
     else:
-        print("ERROR")
+        print("ERROR, invalid command")
         # NO QUOTES YOU HAVE NO QUOTES PLEASE PUT QUOTES INTO YOUR INPUT
     run()
 
