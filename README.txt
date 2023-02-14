@@ -1,3 +1,8 @@
+
+# Edward Lee
+# edwarhl4@uci.edu
+# 61666868
+
 A1P1 COMMANDS
 	Q --- quit
 
@@ -26,5 +31,12 @@ A1P2 COMMANDS
 	
 A2 COMMANDS	 
 	O [FILEPATH] --- open the .dsu file at this filepath location and allow the user to edit and make changes to it.
+	             --- print a confirmation message with user details as well
 	
-	E []
+	E            --- edits the .dsu file loaded by a C or O command
+	                 subcommands
+	                    -usr [USERNAME]
+	                    -pwd [PASSWORD]
+	                    -bio [BIO]
+                        -addpost [NEW POST]
+                        -delpost [ID]
