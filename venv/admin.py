@@ -1,9 +1,3 @@
-# ui.py
-
-# Starter code for assignment 2 in ICS 32 Programming with Software Libraries in Python
-
-# Replace the following placeholders with your information.
-
 # Edward Lee
 # edwarhl4@uci.edu
 # 61666868
@@ -32,7 +26,7 @@ def inputSplitter(myInput):
         remainingChars = myInput[myInput.find("-"):]
     return [firstLetter, filePath, remainingChars]
 def run():
-    userInput = input("Input a command.\n")
+    userInput = input()
     listOfInputs = inputSplitter(userInput)
     firstLetter = listOfInputs[0]
     filePath = listOfInputs[1]
