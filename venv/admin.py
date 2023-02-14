@@ -33,6 +33,7 @@ def run():
     remainingChars = listOfInputs[2]
     remainingCharsSplit = remainingChars.split(" ")
     print(listOfInputs)
+    OFlag = False
     # starting with the no remainingChars commands first
     if firstLetter in "DRO":
         if firstLetter == "D":
@@ -58,7 +59,7 @@ def run():
             else:
                 print("ERROR, selected path is not a file.")
         elif firstLetter == "O":
-            print("O was selected. no code is available for O yet.")
+            OFlag = True
     elif firstLetter in "LCE":
         if firstLetter == "L":
             if not filePath.is_file():
@@ -78,8 +79,13 @@ def run():
                 biography = input("Please enter the biography for this journal: ")
                 tempProfile = Profile.Profile(username, password, biography)
                 tempProfile.save_profile(tempPath)
+                OFlag = True
         elif firstLetter == "E":
-            print("E was selected. no code is available for E yet.")
+            if OFlag:
+                pass
+            else:
+                print("You have not prepared a file using either C or O commands. Try again.")
+
     else:
         print("ERROR, invalid command")
     run()

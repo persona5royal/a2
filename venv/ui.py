@@ -32,7 +32,7 @@ def inputSplitter(myInput):
         remainingChars = myInput[myInput.find("-"):]
     return [firstLetter, filePath, remainingChars]
 def run():
-    userInput = input("Input a command.\n")
+    userInput = input("Refer to the README and input a command.\n")
     listOfInputs = inputSplitter(userInput)
     firstLetter = listOfInputs[0]
     filePath = listOfInputs[1]
