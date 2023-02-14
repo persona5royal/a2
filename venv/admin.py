@@ -35,7 +35,6 @@ def run(OFlag, OPath=pathlib.Path(".")):
     filePath = listOfInputs[1]
     remainingChars = listOfInputs[2]
     remainingCharsSplit = remainingChars.split(" ")
-    print(listOfInputs)
     # starting with the no remainingChars commands first
     if firstLetter in "DRO":
         if firstLetter == "D":
@@ -98,7 +97,6 @@ def run(OFlag, OPath=pathlib.Path(".")):
                     for accum in range(len(miniList)):
                         miniList[accum] = miniList[accum].replace('"','')
                         miniList[accum] = miniList[accum].strip()
-
                 for miniList in EPSPLITCOMMANDS:
                     if miniList[0] == "usr":
                         print(miniList[1])
@@ -131,8 +129,6 @@ def run(OFlag, OPath=pathlib.Path(".")):
                     for accum in range(len(miniList)):
                         miniList[accum] = miniList[accum].replace('"', '')
                         miniList[accum] = miniList[accum].strip()
-
-                print(EPSPLITCOMMANDS)
                 for miniList in EPSPLITCOMMANDS:
                     if miniList[0] == "usr":
                         print(f'username is {ourProfile.username}')

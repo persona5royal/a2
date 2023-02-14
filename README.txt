@@ -40,3 +40,17 @@ A2 COMMANDS
 	                    -bio [BIO]
                         -addpost [NEW POST]
                         -delpost [ID]
+
+
+P
+-usr Prints the username stored in the profile object
+
+-pwd Prints the password stored in the profile object
+
+-bio Prints the bio stored in the profile object
+
+-posts Prints all posts stored in the profile object with their ID (using list index is fine)
+
+-post [ID] Prints post identified by ID
+
+-all Prints all content stored in the profile object
