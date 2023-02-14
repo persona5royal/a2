@@ -88,17 +88,17 @@ def run(OFlag, OPath=pathlib.Path(".")):
                 OPath = tempPath
         elif firstLetter == "E":
             if OFlag:
-                print(remainingChars)
                 EPSPLITCOMMANDS = remainingChars.split("-")
                 del EPSPLITCOMMANDS[0]
                 for iterator in range(len(EPSPLITCOMMANDS)):
                     EPSPLITCOMMANDS[iterator] = (EPSPLITCOMMANDS[iterator].split(maxsplit=1))
-                print(EPSPLITCOMMANDS)
                 ourProfile = Profile.Profile()
                 ourProfile.load_profile(OPath)
                 for miniList in EPSPLITCOMMANDS:
                     for accum in range(len(miniList)):
                         miniList[accum] = miniList[accum].replace('"','')
+                        miniList[accum] = miniList[accum].strip()
+
                 for miniList in EPSPLITCOMMANDS:
                     if miniList[0] == "usr":
                         print(miniList[1])
@@ -111,7 +111,7 @@ def run(OFlag, OPath=pathlib.Path(".")):
                         ourProfile.bio = miniList[1]
                     elif miniList[0] == "addpost":
                         print(miniList[1])
-                        ourProfile.add_post(miniList[1])
+                        ourProfile.add_post(Profile.Post(entry=miniList[1]))
                     elif miniList[0] == "delpost":
                         print(miniList[1])
                         ourProfile.del_post(miniList[1])
@@ -121,7 +121,40 @@ def run(OFlag, OPath=pathlib.Path(".")):
                 print("You have not prepared a file using either C or O commands. Try again.")
         elif firstLetter == "P":
             if OFlag:
-                print(remainingChars)
+                EPSPLITCOMMANDS = remainingChars.split("-")
+                del EPSPLITCOMMANDS[0]
+                for iterator in range(len(EPSPLITCOMMANDS)):
+                    EPSPLITCOMMANDS[iterator] = (EPSPLITCOMMANDS[iterator].split(maxsplit=1))
+                ourProfile = Profile.Profile()
+                ourProfile.load_profile(OPath)
+                for miniList in EPSPLITCOMMANDS:
+                    for accum in range(len(miniList)):
+                        miniList[accum] = miniList[accum].replace('"', '')
+                        miniList[accum] = miniList[accum].strip()
+
+                print(EPSPLITCOMMANDS)
+                for miniList in EPSPLITCOMMANDS:
+                    if miniList[0] == "usr":
+                        print(f'username is {ourProfile.username}')
+                    elif miniList[0] == "pwd":
+                        print(f'password is {ourProfile.password}')
+                    elif miniList[0] == "bio":
+                        print(f'biography is {ourProfile.bio}')
+                    elif miniList[0] == "posts":
+                        listOfPosts = ourProfile.get_posts()
+                        print(listOfPosts)
+                    elif miniList[0] == "post":
+                        id = int(miniList[1])
+                        listOfPosts = ourProfile.get_posts()
+                        givenPost = listOfPosts[id]
+                        print(givenPost)
+                    elif miniList[0] == "all":
+                        print(f'username is {ourProfile.username}')
+                        print(f'password is {ourProfile.password}')
+                        print(f'biography is {ourProfile.bio}')
+                        listOfPosts = ourProfile.get_posts()
+                        print(listOfPosts)
+                ourProfile.save_profile(OPath)
             else:
                 print("You have not prepared a file using either C or O commands. Try again.")
 
